@@ -4,17 +4,21 @@ const stopBtn = document.querySelector('[data-stop]');
 startBtn.addEventListener("click", onClickStart);
 stopBtn.addEventListener("click", onClickStop);
 let timerId = null;
+stopBtn.disabled = true;
 
 function onClickStart () {
 
-  timerId = setInterval(changeBackgroundColor, 1000);
-  startBtn.disabled = true;
+    stopBtn.disabled = false;
+    timerId = setInterval(changeBackgroundColor, 1000);
+    startBtn.disabled = true;
+
 }
 
 function onClickStop () {
 
     clearInterval(timerId);
     startBtn.disabled = false;
+    stopBtn.disabled = true;
     console.log(`Interval with id ${timerId} has stopped!`);
 }
 

@@ -14,6 +14,7 @@ function onSubmit(e) {
   for (let i = 1; i <= amount; i++) {
       createPromise(i, delay + (i - 1) * step);
   }
+  form.reset();
 }
 
 function createPromise(position, delay) {
